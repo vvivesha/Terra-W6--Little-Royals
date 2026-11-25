@@ -29,6 +29,8 @@ if response == "b":
 import turtle
 screen = turtle.Screen()
 travelling = True
+active = False
+zzz = False
 t = turtle.Turtle()
 p = turtle.Turtle()
 fd = turtle.Turtle()  #fd for fairydust
@@ -58,32 +60,66 @@ p.color("blue")
 
 
 def left():
+    global active
+    global zzz
+    zzz = False
+    active = True
+    p.showturtle()
     p.setheading(0)
     p.right(180)
     p.forward(50)
+    active = False
 
 def right():
+    global active
+    global zzz
+    zzz = False
+    active = True
+    p.showturtle()
     p.setheading(0)
     p.forward(50)
+    active = False
 
 def up():
+    global active
+    global zzz
+    zzz = False
+    active = True
+    p.showturtle()
     p.setheading(0)
     p.left(90)
     p.forward(50)
+    active = False
 
 def down():
+    global active
+    global zzz
+    zzz = False
+    active = True
+    p.showturtle()
     p.setheading(0)
     p.right(90)
     p.forward(50)
+    active = False
 
 #animations
+def sleepy():
+    global zzz
+    global active
+    active = False
+    zzz = True
 def sleep():
-    p.speed(1)
-    p.shapesize(stretch_wid = 1, stretch_len = 0.2, outline = 1.5)
-    p.shape("circle")
-    p.pencolor("green")
-    p.color("white")
-    p.speed(2)
+    global zzz
+    global active
+    active = False
+    if zzz == True:
+        p.speed(1)
+        p.shapesize(stretch_wid = 1, stretch_len = 0.2, outline = 1.5)
+        p.shape("circle")
+        p.pencolor("green")
+        p.color("white")
+        p.speed(2)
+        p.showturtle()
 
 screen.listen()
 screen.onkey(left, "Left")
@@ -104,7 +140,7 @@ def trail_clear():
     screen.ontimer(trail_clearer, 1500)
 
 screen.ontimer(script_clearer, 3000)
-screen.ontimer(sleep, 15000) #every 15 seconds, p-turtle/fairy goes zzz. Most fairies don't sleep so often. Don't get caught as a not-true-fairy!
+screen.ontimer(zzz, 15000) #every 15 seconds, p-turtle/fairy goes zzz. Most fairies don't sleep so often. Don't get caught as a not-true-fairy!
 
 while True:
     trail_clear()  #clears p-turtle's trail every 1.5 seconds.
@@ -112,6 +148,8 @@ while True:
         load_done = False
         screen.title("Teleporting to Fairy Land...")
         screen.bgcolor("black")
+        p.hideturtle()
+        p.clear()
         t.shapesize(stretch_wid = 0.2, stretch_len = 1, outline = 1)
         t.speed(2)
         t.shape("circle")
@@ -133,6 +171,7 @@ while True:
         load_done = True
         t.clear()
         t.hideturtle()
+        time.sleep(1.5)
         travelling = False
     #if travelling == False:
     if fairydust_msg == True:
