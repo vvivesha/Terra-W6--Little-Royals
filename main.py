@@ -24,7 +24,7 @@ if response == "b":
     #fairydust += 5
     fairydust_msg = True
     fd_amount += 5
-    from = "FG"
+    from1 = "FG"
     print("<Fairy Godmother>  Off with you, now, little one! Don\'t lose my fairydust!>")
 import turtle
 screen = turtle.Screen()
@@ -42,10 +42,12 @@ p_max = width / 2
 n_max = width / 2 * -1
 header_y = (u_max / 5) * 4
 header = (0, header_y)
-footer_y = (d_max / 5) * 4 *-1
+footer_y = (d_max / 5) * 4
 footer = (0, footer_y)
-
-
+dr_corner = (p_max, d_max)  #down-right corner (bottom-right corner)
+stats_corner = (p_max, footer_y) #close by dr_corner but a bit elevated on y-axis so it will be noticed better
+#more variables!
+magic = 0 #magic amount or level of magic. Total needed = 8 for now..?
 
 
 
@@ -56,11 +58,11 @@ while True:
         load_done = False
         screen.title("Teleporting to Fairy Land...")
         screen.bgcolor("black")
-        t.shapesize(stretch_wid = 1, stretch_len = 1.5, outline = 1)
+        t.shapesize(stretch_wid = 0.2, stretch_len = 1, outline = 1)
         t.speed(2)
         t.shape("circle")
-        t.pencolor("pink")
-        t.color("green")
+        t.pencolor("green")
+        t.color("pink")
         t.showturtle()
         t.penup()
         t.goto(0, 0)
@@ -75,13 +77,17 @@ while True:
         t.goto(-15, 20)
         t.dot(1, "purple")
         load_done = True
+        t.clear()
+        t.hideturtle()
+        travelling = False
     #if travelling == False:
     if fairydust_msg == True:
         t.hideturtle()
         t.goto(footer)
-        t.write("<from " + from + ">  + " + str(fd_amount) + " fairydust", align = "right", font = ("Courier New", 15, "italic"))
+        t.write("<from " + from1 + ">  + " + str(fd_amount) + " fairydust", align = "right", font = ("Courier New", 15, "italic"))
         fd_amount = 0
         fairydust += 5
+        fd.goto(stats_corner)
         fd.write("fd." + str(fairydust) + ".m." + str(magic) + ".", align = "right", font = ("Verdana", 5, "bold"))
 
 #fd_amount = fairydust_amount but quicker to type.
