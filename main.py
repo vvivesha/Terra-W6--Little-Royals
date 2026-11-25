@@ -27,7 +27,9 @@ t = turtle.Turtle()
 p = turtle.Turtle()
 
 t.color("green")
-width = 
+width = screen.window_width()
+height = scree.window_height()
+
 
 
 
@@ -35,4 +37,22 @@ width =
 while True:
     if travelling == True:
         screen.Title("Teleporting to Fairy Land...")
+        screen.bgcolor("black")
+        t.shapesize(stretch_wid = 1, stretch_len = 1.5, outline = 1)
+        t.shape("circle")
+        t.pencolor("pink")
+        t.color("green")
+        t.showturtle()
+        t.penup()
+        t.goto(0, 0)
+        #t.color("pink")
+        t.dot(5, "pink")
+        t.goto(15, 20)
+        t.dot(4, "green")
+        t.goto(20, 15)
+        t.dot(3, "yellow")
+        t.goto(-20, 15)
+        t.dot(2, "orange")
+        t.goto(-15, 20)
+        t.dot(1, "purple")
     if travelling == False:
