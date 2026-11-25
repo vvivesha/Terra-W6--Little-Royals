@@ -51,27 +51,60 @@ magic = 0 #magic amount or level of magic. Total needed = 8 for now..?
 
 p.hideturtle()
 p.speed(2)
-p.shapesize(stretch_wid = 0.2, stretch_ len = 1, outline = 1)
+p.shapesize(stretch_wid = 0.2, stretch_len = 1, outline = 1)
 p.shape("circle")
 p.pencolor("green")
 p.color("blue")
+
 
 def left():
     p.setheading(0)
     p.right(180)
     p.forward(50)
 
+def right():
+    p.setheading(0)
+    p.forward(50)
+
+def up():
+    p.setheading(0)
+    p.left(90)
+    p.forward(50)
+
+def down():
+    p.setheading(0)
+    p.right(90)
+    p.forward(50)
+
+#animations
+def sleep():
+    p.speed(1)
+    p.shapesize(stretch_wid = 1, stretch_len = 0.2, outline = 1.5)
+    p.shape("circle")
+    p.pencolor("green")
+    p.color("white")
+    p.speed(2)
+
+screen.listen()
+screen.onkey(left, "Left")
+screen.listen()
+screen.onkey(right, "Right")
+screen.listen()
+screen.onkey(up, "Up")
+screen.listen()
+screen.onkey(down, "Down")
 #maintenance
 def script_clearer():
     fd.clear()
 
-def trail_clearer()
+def trail_clearer():
     p.clear()
 #timers
 def trail_clear():
     screen.ontimer(trail_clearer, 1500)
 
 screen.ontimer(script_clearer, 3000)
+screen.ontimer(sleep, 15000) #every 15 seconds, p-turtle/fairy goes zzz. Most fairies don't sleep so often. Don't get caught as a not-true-fairy!
 
 while True:
     trail_clear()  #clears p-turtle's trail every 1.5 seconds.
