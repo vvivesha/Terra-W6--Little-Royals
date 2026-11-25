@@ -24,6 +24,7 @@ if response == "b":
     #fairydust += 5
     fairydust_msg = True
     fd_amount += 5
+    from = "FG"
     print("<Fairy Godmother>  Off with you, now, little one! Don\'t lose my fairydust!>")
 import turtle
 screen = turtle.Screen()
@@ -78,7 +79,7 @@ while True:
     if fairydust_msg == True:
         t.hideturtle()
         t.goto(footer)
-        t.write("<from " + name + ">  + " + str(fd_amount) + " fairydust", align = "right", font = ("Courier New", 15, "italic"))
+        t.write("<from " + from + ">  + " + str(fd_amount) + " fairydust", align = "right", font = ("Courier New", 15, "italic"))
         fd_amount = 0
         fairydust += 5
         fd.write("fd." + str(fairydust) + ".m." + str(magic) + ".", align = "right", font = ("Verdana", 5, "bold"))
