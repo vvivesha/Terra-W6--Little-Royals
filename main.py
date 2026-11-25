@@ -49,11 +49,32 @@ stats_corner = (p_max, footer_y) #close by dr_corner but a bit elevated on y-axi
 #more variables!
 magic = 0 #magic amount or level of magic. Total needed = 8 for now..?
 
+p.hideturtle()
+p.speed(2)
+p.shapesize(stretch_wid = 0.2, stretch_ len = 1, outline = 1)
+p.shape("circle")
+p.pencolor("green")
+p.color("blue")
 
+def left():
+    p.setheading(0)
+    p.right(180)
+    p.forward(50)
 
+#maintenance
+def script_clearer():
+    fd.clear()
 
+def trail_clearer()
+    p.clear()
+#timers
+def trail_clear():
+    screen.ontimer(trail_clearer, 1500)
+
+screen.ontimer(script_clearer, 3000)
 
 while True:
+    trail_clear()  #clears p-turtle's trail every 1.5 seconds.
     if travelling == True:
         load_done = False
         screen.title("Teleporting to Fairy Land...")
