@@ -114,25 +114,26 @@ def shop_refresh():
     global store_sv
     global store_working
     q.clear()  #so the store-notif msg only ends up staying for a few seconds
+    m.showturtle()
     m.penup()
     m.goto(shop_corner)
     m.shapesize(stretch_wid = 5, stretch_len = 5, outline = 2)
     if store_sv <= 0: #error
         m.color("red")
-        m.write("Error", align = "center", font = "Impact", 5, "italic")
+        m.write("Error", align = "center", font = ("Impact", 5, "italic"))
         store_working = False
     if store_sv >= 0:
         m.color("orange")
         m.pencolor("gray")
-        m.write(store_sv + "/3 visits", align = "center", font = "Courier New", 5, "normal")
+        m.write(store_sv + "/3 visits", align = "center", font = ("Courier New", 5, "normal"))
         store_working = True
     if store_sv > 3:
         m.color("red")
-        m.write("Store locked. Wait 5 mins!", align = "center", font = "Courier New", 5, "normal")
+        m.write("Store locked. Wait 5 mins!", align = "center", font = ("Courier New", 5, "normal"))
         store_working = False
     else:  #if store_sv == 0:
         m.color("green")
-        m.write("Store open!", align = "center", font = "Courier New", 5, "normal")
+        m.write("Store open!", align = "center", font = ("Courier New", 5, "normal"))
         store_working = True
     if store_working == True:
         if p.distance(m) <= 5:
@@ -229,7 +230,7 @@ def store_notif():
 
 screen.ontimer(script_clearer, 3000)
 screen.ontimer(zzz, 15000) #every 15 seconds, p-turtle/fairy goes zzz. Most fairies don't sleep so often. Don't get caught as a not-true-fairy!
-screen.ontimer(store_refresh, 300000)  #every 5 mins: store function triggerd (store opens.)
+screen.ontimer(shop_refresh, 300000)  #every 5 mins: store function triggerd (store opens.)
 screen.ontimer(store_notif, 288000)  #every 4.8 mins; for store notif/alert
 
 while True:
