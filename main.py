@@ -74,7 +74,9 @@ def left():
     active = True
     p.showturtle()
     p.setheading(0)
+    screen.tracer(0)
     p.right(180)
+    screen.tracer(1)
     p.forward(50)
     active = False
 
@@ -95,7 +97,9 @@ def up():
     active = True
     p.showturtle()
     p.setheading(0)
+    screen.tracer(0)
     p.left(90)
+    screen.tracer(1)
     p.forward(50)
     active = False
 
@@ -106,7 +110,9 @@ def down():
     active = True
     p.showturtle()
     p.setheading(0)
+    screen.tracer(0)
     p.right(90)
+    screen.tracer(1)
     p.forward(50)
     active = False
 
@@ -222,7 +228,7 @@ def trail_clearer():
 def trail_clear():
     screen.ontimer(trail_clearer, 1500)
 
-def store_notif():
+def shop_notif():
     q.penup()
     q.goto(footer)
     q.write("Store will open in 1 minute", align = "center", font = ("Verdana", 10, "underline"))
@@ -231,7 +237,7 @@ def store_notif():
 screen.ontimer(script_clearer, 3000)
 screen.ontimer(zzz, 15000) #every 15 seconds, p-turtle/fairy goes zzz. Most fairies don't sleep so often. Don't get caught as a not-true-fairy!
 screen.ontimer(shop_refresh, 300000)  #every 5 mins: store function triggerd (store opens.)
-screen.ontimer(store_notif, 288000)  #every 4.8 mins; for store notif/alert
+screen.ontimer(shop_notif, 288000)  #every 4.8 mins; for store notif/alert
 
 while True:
     trail_clear()  #clears p-turtle's trail every 1.5 seconds.
